@@ -1,0 +1,16 @@
+version: '3.4'
+
+services:
+  gbi.teste.webapi:
+    image: ${DOCKER_REGISTRY-}gbitestewebapi
+    build:
+      context: .
+      dockerfile: GBI.Teste.WebApi\Dockerfile
+  sqlserver:
+    image: microsoft/mssql-server-linux:2019-latest
+    environment:
+      SA_PASSWORD: "LbfE@2704*"
+      ACCEPT_EULA: "Y"
+      MSSQL_PID: "Developer"
+    ports:
+      - "1433:1433"
